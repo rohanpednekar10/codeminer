@@ -1,0 +1,88 @@
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	font-family: 'Fira Code', monospace;	
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	color: black;
+}
+
+.link {
+	color: #24a0ed;
+}
+
+pre {
+	padding: 10px 10px 10px 10px;
+	background-color: #f8f9fa;
+	color: black;
+}
+
+.img-avatar {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
+.img-avatar-profile {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+
+.user-card {
+	background-color: #f8f9fa;
+	border-color: #f8f9fa;
+}
+
+.navbar-brand {
+	font-family: 'Fira Code', monospace;
+	font-weight: bolder;
+	font-size: 150%;
+}
+
+.navbar-brand-bottom {
+	font-family: 'Fira Code', monospace;
+	font-weight: bolder;
+	font-size: 200%;
+}
+
+#green-angle-bracket {
+	color: #32c766;
+}
+
+.card, .form-control, .btn {
+	border-radius: 0px;
+}
+
+footer {
+	background-color: #f8f9fa;
+	width: 100%;
+	margin-top: auto;	
+}
+
+
+/*custom scrollbar*/
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: lightgrey;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #32c766;
+}
+
+/*end custom scrollbar*/

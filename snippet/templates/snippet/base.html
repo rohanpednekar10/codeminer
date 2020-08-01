@@ -1,0 +1,127 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End Favicon -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Google fonts -->
+
+    <!-- Fira code -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- End Fira code -->
+
+    <!-- End Google fonts -->
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/fb5f6b8b6c.js" crossorigin="anonymous"></script>
+    <!-- End Font Awesome -->
+
+    <!-- Main css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- End Main css -->
+
+    <title>codeminer</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'home' %}">codeminer<span id="green-angle-bracket">></span></a>
+      {% if user.is_authenticated %}
+          <div class="dropdown">
+            <a  type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Hello {{ request.user.first_name }}
+              <img class="img-avatar-profile" src="{{ user.profile.image.url }}">
+            </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">@{{ request.user.username }}</a>
+                  <a class="dropdown-item" href="{% url 'post-create' %}">New Post</a>
+                  <a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Profile</a>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+              </div>
+          </div>
+      {% else %}
+          <div>
+            <a href="{% url 'login' %}" class="btn btn-success">Sign In</a>
+          </div>
+
+      {% endif %}
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-sm my-3">
+            {% block content %}
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row py-5 text-footer">
+          <div class="col-sm pt-3">
+            <h4 class="link-title">Follow me</h4><br>
+            <p class="link"><a href="https://twitter.com/RohanPednekar10">Twitter</a></p>
+            <p class="link"><a href="https://www.linkedin.com/in/rohanpednekar10">Linkedin</a></p>
+          </div>
+          <div class="col-sm pt-3">
+            <p class="navbar-brand-bottom">codeminer<span id="green-angle-bracket">></span></p>
+            <p>&copy; <span id="year">year</span> All Rights Reserved <br>Made With <span id="heart">❤</span> By Rohan</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="{% static 'js/year.js' %}"></script>
+
+  </body>
+</html>

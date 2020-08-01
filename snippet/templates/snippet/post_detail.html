@@ -1,0 +1,41 @@
+{% extends 'snippet/base.html' %}
+{% load static %}
+{% block content %}
+    <h1 class="post-content">{{ object.title }}</h1>
+    <br>
+    <h5 class="post-content">{{ object.subtitle }}</h5>
+    <br>
+    <p class="post-content">{{ object.introduction|linebreaks }}</p>
+    <br>
+    <p class="post-content">{{ object.content1|linebreaks }}</p>
+    <br>
+    <pre>
+        <code>{{ object.code }}</code>
+    </pre>
+    <br>
+    <p class="post-content">{{ object.content2|linebreaks }}</p>
+    <br>
+    {% if object.author == user %}
+      <div>
+        <a class="btn btn-secondary" href="{% url 'post-update' object.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'post-delete' object.id %}">Delete</a>
+      </div>
+    {% endif %}
+
+    <div class="card my-5 py-2" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4 text-center my-auto">
+          <img class="img-avatar" src="{{ object.author.profile.image.url }}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body text-center">
+                <small class="text-muted">Post by</small>
+                <br>
+                <h6>{{ object.author.first_name }} {{ object.author.last_name }}</h6>
+                <p>{{ object.author.profile.bio }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'snippet/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div>
+        <h1>New Post</h1>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div>
+                <button class="btn btn-outline-success" type="submit">Post</button>
+                <a class="btn btn-outline-secondary" href="{% url 'home' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
