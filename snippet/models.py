@@ -5,12 +5,12 @@ from django.urls import reverse
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length = 50)
+    title = models.CharField(max_length = 50, default = '')
     subtitle = models.CharField(max_length = 100, default = '')
-    introduction = models.TextField(null = True)
-    content1 = models.TextField(null = True, verbose_name = 'Content')
-    code = models.TextField(null = True)
-    content2 = models.TextField(null = True, verbose_name = 'Content')
+    introduction = models.TextField(null = True, default = '')
+    content1 = models.TextField(null = True, verbose_name = 'Content', default = '')
+    code = models.TextField(null = True, default = '')
+    content2 = models.TextField(null = True, verbose_name = 'Content', default = '')
     date_posted = models.DateTimeField(default = timezone.now)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
 
